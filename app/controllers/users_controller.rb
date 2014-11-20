@@ -1,20 +1,21 @@
 class UsersController < ApplicationController
 
   def index
-    if session[:is_admin] != true
-      redirect_to('/home')
-    end
+    #if session[:is_admin] != true
+    #  redirect_to('/home')
+    #end
     @users = User.all
   end
 
   def show
     @user = User.find_by_id(params[:id])
-    prevent_user(@user)
+    #@session_id = session[]
+    #prevent_user(@user)
   end
 
   def edit
     @user = User.find_by_id(params[:id])
-    prevent_user(@user)
+    #prevent_user(@user)
   end
 
    def update
@@ -23,9 +24,9 @@ class UsersController < ApplicationController
 
     if(@user.save)
       session[:user_id] = @user.id
-      session[:is_admin] = @user.is_admin
+      #session[:is_admin] = @user.is_admin
       flash[:success] = "You're profile is updated"
-      redirect_to '/home'
+      redirect_to user_path(@user)
     else
       render :edit
     end
