@@ -10,7 +10,7 @@
   </ul>
 <% end %>
 
-<%= form_for(@photo, url: photos_create_path) do |f|%>
+<%= form_for(@photo, url: new_photo_path) do |f|%>
 <div class = "form-group">
   <%= f.label(:title, class: "control-label") %>
   <%= f.text_field(:title, autofocus: true, class: "form-control") %>

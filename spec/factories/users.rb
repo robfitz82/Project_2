@@ -4,7 +4,7 @@ FactoryGirl.define do
 		lastname "Joe"
 		username "Mjoe"
 		password "MyString"
-		password_digest "MyString"
+		password_digest BCrypt::Password.create('MyString')
 		email "mjoe@gmail.com"
 	end
 
