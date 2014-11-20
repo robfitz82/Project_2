@@ -1,10 +1,10 @@
 FactoryGirl.define do
-  factory :photo do
-    title "MyString"
-width 1
-height 1
-url "MyString"
-price 1
-  end
+	factory :photo do
+		title "Portrait of a Man"
+		width 300
+		height 300
+		url "www.mycoolphoto.com/"
+		price 10
+	end
 
 end
