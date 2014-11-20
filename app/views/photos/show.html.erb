@@ -1,0 +1,23 @@
+<h1>Photos#show</h1>
+
+
+<h1>Photo detail page</h1>
+
+<p>
+ <%= link_to image_tag (@photo.url) %>
+</p>
+
+<p>
+ Title: <%= @photo.title %>
+</p>
+
+<p>
+ Price: <%= @photo.price %>
+</p>
+
+
+<%= link_to("Edit", photos_edit_path(@photo)) %>
+<br>
+<%= link_to 'Destroy',  photos_show_path(@photo.id),  method: :delete, data: { confirm: 'Are you sure?' } %>
+
+
