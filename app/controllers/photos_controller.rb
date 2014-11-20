@@ -29,9 +29,25 @@ class PhotosController < ApplicationController
   end
 
   def update
+    @photo = Photo.find(params[:id])
+    @photo.update_attributes(photo_params)
+    if @photo.save
+      flash[:success] = "Photo successfully updated"
+      redirect_to photos_path
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @photo = Photo.find(params[:id])
+    @photo.update_attributes (photo_params)
+    if @photo.save
+      flash[:success] = "Photo updated"
+      redirect_to photos_path
+    else
+      render :edit
+    end
   end
 
     private
