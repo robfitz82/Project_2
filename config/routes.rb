@@ -24,4 +24,6 @@ Rails.application.routes.draw do
 
   resources :photo
 
+  resources :user
+
 end
