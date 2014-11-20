@@ -10,7 +10,6 @@ class User < ActiveRecord::Base
 		uniqueness: true,
 		presence: true
 	validates :password,
-		uniqueness: true,
 		presence: true,
 		length: {minimum: 5}
 	validates :email,
