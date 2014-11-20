@@ -16,8 +16,8 @@
 </p>
 
 
-<%= link_to("Edit", photos_edit_path(@photo)) %>
+<%= link_to("Edit", edit_photo_path(@photo)) %>
 <br>
-<%= link_to 'Destroy',  photos_show_path(@photo.id),  method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Destroy',  photo_path(@photo.id),  method: :delete, data: { confirm: 'Are you sure?' } %>
 
 
