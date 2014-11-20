@@ -1,0 +1,30 @@
+<h1>Add a new photo</h1>
+
+<% if @photo.errors.any? %>
+  <ul class = "text-danger list-style-none">
+   <%  for err in @photo.errors.full_messages %>
+    <li>
+      <%= err%>
+    </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for(@photo, url: photos_create_path) do |f|%>
+<div class = "form-group">
+  <%= f.label(:title, class: "control-label") %>
+  <%= f.text_field(:title, autofocus: true, class: "form-control") %>
+</div>
+
+<div class="form-group">
+  <%= f.label(:url,  class: "control-label") %>
+  <%= f.text_field(:url,  class: "form-control") %>
+</div>
+
+<div class="form-group">
+  <%= f.label(:price,  class: "control-label") %>
+  <%= f.text_field(:price,  class: "form-control") %>
+</div>
+
+<%= f.submit("Add a photo!", class: "btn btn-lg btn-info") %>
+<% end %>
