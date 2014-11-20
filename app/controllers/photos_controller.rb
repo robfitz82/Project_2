@@ -40,17 +40,13 @@ class PhotosController < ApplicationController
   end
 
   def destroy
-    @photo = Photo.find(params[:id])
-    @photo.update_attributes (photo_params)
-    if @photo.save
-      flash[:success] = "Photo updated"
-      redirect_to photos_path
-    else
-      render :edit
-    end
+    photo = Photo.find(params[:id])
+    photo.destroy
+    flash[:success] = "Photo deleted"
+    redirect_to home_path
   end
 
-    private
+  private
   def photo_params
     params.require(:photo).permit(:title, :url, :price)
   end
