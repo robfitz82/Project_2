@@ -7,6 +7,7 @@ require 'capybara/rails'
 require 'capybara/rspec'
 require 'rspec/rails'
 require 'shoulda/matchers'
+require 'bcrypt'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
