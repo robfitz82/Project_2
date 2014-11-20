@@ -20,10 +20,10 @@ Rails.application.routes.draw do
   post '/update_password' => 'access#update_password'
 
 
-  resources :category
+  resources :categories
 
-  resources :photo
+  resources :photos
 
-  resources :user
+  resources :users
 
 end
