@@ -6,4 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create({firstname: "John", lastname: "Doe", email: "test@example.com", username: "user1", password: "password"})
+User.create({firstname: "John", lastname: "Doe", email: "test1@example.com", username: "user1", password: "password"})
+User.create({firstname: "Jane", lastname: "Doe", email: "test2@example.com", username: "user2", password: "password"})
+User.create({firstname: "Joe", lastname: "Testa", email: "test3@example.com", username: "user3", password: "password"})
+User.create({firstname: "David", lastname: "Gudeman", email: "test4@example.com", username: "user4", password: "password"})
+
+Photo.create({title: "test1", width: 800 , height: 400, url: "http://lorempixel.com/800/400/city/", price: 250, user_id: 1})
+Photo.create({title: "test2", width: 800 , height: 400, url: "http://lorempixel.com/800/400/city/", price: 250, user_id: 2})
+Photo.create({title: "test3", width: 800 , height: 400, url: "http://lorempixel.com/800/400/city/", price: 250, user_id: 3})
+Photo.create({title: "test4", width: 800 , height: 400, url: "http://lorempixel.com/800/400/city/", price: 250, user_id: 4})
