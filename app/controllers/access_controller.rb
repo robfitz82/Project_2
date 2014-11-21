@@ -86,7 +86,7 @@ class AccessController < ApplicationController
     else
       session[:user_id] = authorized_user.id
       flash[:success] = "You are now logged in."
-      redirect_to home_path
+      redirect_to photos_path
     end
 
   end

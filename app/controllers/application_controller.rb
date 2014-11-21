@@ -13,7 +13,7 @@ private
 
   def prevent_login_signup
     if session[:user_id]
-      redirect_to home_path
+      redirect_to photos_path
     end
   end
 
