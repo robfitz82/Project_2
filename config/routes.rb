@@ -24,6 +24,6 @@ Rails.application.routes.draw do
 
   resources :photos
 
-  resources :users
+  resources :users, except: [:create, :new]
 
 end
