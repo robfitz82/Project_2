@@ -13,7 +13,7 @@
   </ul>
 <% end %>
 
-<%= form_for(@photo, url: photo_path) do |f|%>
+<%= form_for(@photo, url: user_photo_path(@current_user, @photo)) do |f|%>
 <div class = "form-group">
   <%= f.label(:title, class: "control-label") %>
   <%= f.text_field(:title, autofocus: true, class: "form-control") %>
@@ -21,7 +21,7 @@
 
 <div class="form-group">
   <%= f.label(:url,  class: "control-label") %>
-  <%= f.text_field(:url,  class: "form-control") %>
+  <%= f.uploadcare_field :url, class: "form-control" %>
 </div>
 
 <div class="form-group">

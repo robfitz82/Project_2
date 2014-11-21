@@ -1,0 +1,5 @@
+<% @photos.each do |p| %>
+	<li>
+      <%= image_tag("#{p.url}-/resize/200x/") %>
+    </li>
+<% end %>

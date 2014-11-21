@@ -15,9 +15,9 @@
  Price: <%= @photo.price %>
 </p>
 
-
-<%= link_to("Edit", edit_photo_path(@photo)) %>
-<br>
-<%= link_to 'Delete',  photo_path(@photo.id),  method: :delete, data: { confirm: 'Are you sure?' } %>
-
+<% if @current_user.id == params[:user_id].to_i %>
+	<%= link_to("Edit", edit_user_photo_path(@current_user, @photo)) %>
+	<br>
+	<%= link_to 'Delete',  user_photo_path(@current_user, @photo.id),  method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
 

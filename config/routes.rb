@@ -22,8 +22,11 @@ Rails.application.routes.draw do
 
   resources :categories
 
-  resources :photos
+ 
 
-  resources :users, except: [:create, :new]
+  resources :users, except: [:create, :new] do
+    resources :photos
+  end
 
+  get 'photos', to: "photos#all", as: 'all_photos'
 end

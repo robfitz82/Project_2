@@ -21,7 +21,7 @@ class AccessController < ApplicationController
       session[:user_id] = @user.id
       flash[:success] = "You are now logged in!"
       UserMailer.signup_confirmation(@user, root_url()).deliver
-      redirect_to photos_path
+      redirect_to all_photos_path
     else
       render :signup
     end
@@ -83,7 +83,7 @@ class AccessController < ApplicationController
     else
       session[:user_id] = authorized_user.id
       flash[:success] = "You are now logged in."
-      redirect_to photos_path
+      redirect_to all_photos_path
     end
 
   end
