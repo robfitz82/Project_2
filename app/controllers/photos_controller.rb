@@ -4,6 +4,7 @@ class PhotosController < ApplicationController
   
 
   def index
+    @photos = Photo.all
   end
 
   def new
@@ -11,8 +12,14 @@ class PhotosController < ApplicationController
   end
 
   def create
-  	@photo = Photo.create(product_params)
+  	@photo = Photo.create(photo_params)
     if @photo.save
+      # split the url 
+      # make an api call to 
+      # https://api.uploadcare.com/files/#{uuid}
+      # save the width and height to the DB
+
+
       flash[:success] = "Photo created"
       redirect_to photos_path
     else
@@ -25,7 +32,17 @@ class PhotosController < ApplicationController
   end
 
   def show
+    response.headers["Access-Control-Allow-Origin"] = "*"
   	@photo = Photo.find(params[:id])
+    x = @photo.url.split("/")
+
+    request = Typhoeus::Request.new(
+        # "https://api.uploadcare.com/files/#{x[3]}/"
+        "https://api.uploadcare.com/files/f79b262b-b4de-4abf-9477-30de829ca4b0/"
+      )
+    # binding.pry
+    ap request 
+
   end
 
   def update
