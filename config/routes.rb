@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   post 'signup', to: "access#create"
 
-  get 'home', to: "access#home", as: 'home'
+  # get 'home', to: "access#home", as: 'home'
 
   get 'logout', to: "access#logout"
 

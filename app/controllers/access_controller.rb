@@ -1,5 +1,5 @@
 class AccessController < ApplicationController
-  before_action :confirm_logged_in, only: [:home]
+  #before_action :confirm_logged_in, only: [:home]
   before_action :prevent_login_signup, only: [:signup, :login, :landing]
 
 
@@ -26,9 +26,6 @@ class AccessController < ApplicationController
       render :signup
     end
    end
-
-  def home
-  end
 
   def reset_password
     @token = params[:token]

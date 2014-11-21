@@ -15,14 +15,13 @@ class PhotosController < ApplicationController
   	@photo = Photo.create(photo_params)
     if @photo.save
       # split the url 
-      # make an api call to 
-      # https://api.uploadcare.com/files/#{uuid}
+      # make an api call with HTTParty to get json hash
       # save the width and height to the DB
       photo_meta_data = HTTParty.get("#{@photo.url}-/json/")
       @photo.update_attributes(width: photo_meta_data["width"], height: photo_meta_data["height"])
 
       flash[:success] = "Photo created"
-      redirect_to photos_path
+      redirect_to photo_path(@photo.id)
     else
       render :new
     end
@@ -51,7 +50,7 @@ class PhotosController < ApplicationController
     photo = Photo.find(params[:id])
     photo.destroy
     flash[:success] = "Photo deleted"
-    redirect_to home_path
+    redirect_to photos_path
   end
 
   private
