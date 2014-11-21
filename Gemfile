@@ -32,6 +32,9 @@ gem 'bcrypt', '~> 3.1.7'
 # For fake data
 gem 'ffaker'
 
+# API requests
+gem 'httparty'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

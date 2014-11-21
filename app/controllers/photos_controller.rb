@@ -18,7 +18,8 @@ class PhotosController < ApplicationController
       # make an api call to 
       # https://api.uploadcare.com/files/#{uuid}
       # save the width and height to the DB
-
+      photo_meta_data = HTTParty.get("#{@photo.url}-/json/")
+      @photo.update_attributes(width: photo_meta_data["width"], height: photo_meta_data["height"])
 
       flash[:success] = "Photo created"
       redirect_to photos_path
@@ -32,17 +33,7 @@ class PhotosController < ApplicationController
   end
 
   def show
-    response.headers["Access-Control-Allow-Origin"] = "*"
   	@photo = Photo.find(params[:id])
-    x = @photo.url.split("/")
-
-    request = Typhoeus::Request.new(
-        # "https://api.uploadcare.com/files/#{x[3]}/"
-        "https://api.uploadcare.com/files/f79b262b-b4de-4abf-9477-30de829ca4b0/"
-      )
-    # binding.pry
-    ap request 
-
   end
 
   def update
