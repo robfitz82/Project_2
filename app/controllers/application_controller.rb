@@ -24,7 +24,7 @@ private
   end
 
   def check_user
-    if session[:user_id] != params[:user_id]
+    if session[:user_id] != params[:user_id].to_i
       redirect_to all_photos_path
     end
   end

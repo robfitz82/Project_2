@@ -1,6 +1,7 @@
 class PhotosController < ApplicationController
   before_action :check_user, only: [:edit]
 	before_action :current_user
+  before_action :categories, only: [:new, :create, :show, :edit, :update]
 	before_action :confirm_logged_in, only: [:new, :create, :edit, :show]
   
 
@@ -17,7 +18,10 @@ class PhotosController < ApplicationController
   end
 
   def create
-  	@photo = @current_user.photos.create(photo_params)
+    @photo = @current_user.photos.create(photo_params)
+    params[:photo][:categories] ||= []
+    @photo.categories = []
+    @photo.categories << Category.find(params[:photo][:categories])
     if @photo.save
       # split the url 
       # make an api call with HTTParty to get json hash
@@ -41,9 +45,11 @@ class PhotosController < ApplicationController
   end
 
   def update
-
     @photo = Photo.find(params[:id])
     @photo.update_attributes(photo_params)
+    params[:photo][:categories] ||= []
+    @photo.categories = []
+    @photo.categories << Category.find(params[:photo][:categories])
     if @photo.save
       flash[:success] = "Photo successfully updated"
       redirect_to user_photo_path(@current_user, @photo.id)
@@ -62,5 +68,9 @@ class PhotosController < ApplicationController
   private
   def photo_params
     params.require(:photo).permit(:title, :url, :price, :user_id)
+  end
+
+  def categories
+    @categories = Category.all
   end
 end
