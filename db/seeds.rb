@@ -17,6 +17,10 @@ Photo.create({title: "test2", width: 800 , height: 400, url: "http://lorempixel.
 Photo.create({title: "test3", width: 800 , height: 400, url: "http://lorempixel.com/800/400/city/", price: 250, user_id: 3})
 Photo.create({title: "test4", width: 800 , height: 400, url: "http://lorempixel.com/800/400/city/", price: 250, user_id: 4})
 
+Category.create({name: "Portrait"})
+Category.create({name: "Black and White"})
+Category.create({name: "Landscape"})
+Category.create({name: "Abstract"})
 #Alternative
 
 # User.delete_all

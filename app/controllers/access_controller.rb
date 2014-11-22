@@ -1,5 +1,5 @@
 class AccessController < ApplicationController
-  before_action :confirm_logged_in, only: [:home]
+  #before_action :confirm_logged_in, only: [:home]
   before_action :prevent_login_signup, only: [:signup, :login, :landing]
 
 
@@ -8,6 +8,7 @@ class AccessController < ApplicationController
   end
 
   def login
+    
   end
 
   def signup
@@ -19,15 +20,12 @@ class AccessController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:success] = "You are now logged in!"
-      UserMailer.signup_confirmation(@user).deliver
-      redirect_to home_path
+      UserMailer.signup_confirmation(@user, root_url()).deliver
+      redirect_to all_photos_path
     else
       render :signup
     end
    end
-
-  def home
-  end
 
   def reset_password
     @token = params[:token]
@@ -51,7 +49,7 @@ class AccessController < ApplicationController
       # create and save reset token on user
       user.reset_token = (0...16).map { (65 + rand(26)).chr }.join
       user.save
-      UserMailer.forgot_password_email(user).deliver
+      UserMailer.forgot_password_email(user, root_url() ).deliver
       flash[:success] = "Please check your email for reset instructions ..."
     end
     render :forgot_password
@@ -85,7 +83,7 @@ class AccessController < ApplicationController
     else
       session[:user_id] = authorized_user.id
       flash[:success] = "You are now logged in."
-      redirect_to home_path
+      redirect_to all_photos_path
     end
 
   end

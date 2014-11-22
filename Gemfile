@@ -14,10 +14,14 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
+
 # Payment processing
 gem 'balanced'
 # Environment variables
 gem 'figaro'
+
+gem "typhoeus"
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -36,6 +40,9 @@ gem 'bcrypt', '~> 3.1.7'
 # For fake data
 gem 'ffaker'
 
+# API requests
+gem 'httparty'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
@@ -44,7 +51,7 @@ gem 'ffaker'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
+gem 'uploadcare-rails', "~> 1.0"
 
 
 gem "twitter-bootstrap-rails"

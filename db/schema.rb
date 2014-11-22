@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20141120232503) do
   end
 
   create_table "category_photos", force: true do |t|
-    t.integer  "catergory_id"
+    t.integer  "category_id"
     t.integer  "photo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
