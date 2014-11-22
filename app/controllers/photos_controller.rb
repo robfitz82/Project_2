@@ -10,7 +10,12 @@ class PhotosController < ApplicationController
   end
 
   def all
-    @photos = Photo.all
+    #binding.pry
+    @portraits = Category.find(1).photos
+    @bw = Category.find(2).photos
+    @landscape = Category.find(3).photos
+    @abstract = Category.find(4).photos
+    #binding.pry
   end
 
   def new
