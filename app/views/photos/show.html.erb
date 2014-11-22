@@ -1,14 +1,15 @@
 
 <h1>Photos#show</h1>
 <div class="wide">
-
-<%= image_tag("#{@photo.url}-/resize/x700/", :class => "img_preview") %>
-
+	<div class="middle">
+<%= image_tag("#{@photo.url}-/resize/x700/", :class => "image-responsive") %>
 </div>
-<h3><%= @photo.title %></h3>
-<h3>
-	Price: <small><%= @photo.price %></small>
-</h3>
+</div>
+<div class="jumbotron">
+<h4>Title: <%= @photo.title %></h4>
+<h4>
+	Price: <%= @photo.price %>
+</h4>
 
 <h4>
 	Tags: 
@@ -16,9 +17,11 @@
 	<li><small><%= c.name %></small></li>
 	<% end %>
 </h4>
+<div>
 <% if @current_user.id == params[:user_id].to_i %>
 <%= link_to("Edit", edit_user_photo_path(@current_user, @photo), class: "btn btn-info") %>
 <br>
 <%= link_to 'Delete',  user_photo_path(@current_user, @photo.id),  method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info" %>
 <% end %>
-
+</div>
+</div>
