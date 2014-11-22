@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 	has_many :photos
+	has_many :cards
 	has_secure_password
 
 	validates :firstname,
@@ -10,7 +11,6 @@ class User < ActiveRecord::Base
 		uniqueness: true,
 		presence: true
 	validates :password,
-		uniqueness: true,
 		presence: true,
 		length: {minimum: 5}
 	validates :email,

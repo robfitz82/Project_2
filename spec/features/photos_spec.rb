@@ -3,15 +3,21 @@ require 'rails_helper'
 feature "Photos", :type => :feature do
   scenario "able to upload a photo" do
   	#setup
+  	user = create(:user)
+  	visit login_path
+  	fill_in "Username", :with => user.username
+  	fill_in "Password", :with => user.password
+  	click_button "Log in"
   	visit new_photo_path
+  	
   	#exercise
-  	fill_in "Title", with: "Portrait of a Man"
-  	fill_in "Width", with: 300
-  	fill_in "Height", with: 300
+  	fill_in "photo_title", with: "Portrait of a Man"
+  	# fill_in "Width", with: 300
+  	# fill_in "Height", with: 300
   	fill_in "Url", with: "www.mycoolphoto.com/"
   	fill_in "Price", with: 10
   	
-  	click_button "Upload"
+  	click_button "Add a photo!"
 
   	#verify
   	expect(page).to have_text("Portrait of a Man" && 300 && 300 && "www.mycoolphoto.com/" && 10)
@@ -22,8 +28,8 @@ feature "Photos", :type => :feature do
   	visit edit_photo_path
   	#exercise
   	fill_in "Title", with: "Portrait of a Woman"
-  	fill_in "Width", with: 400
-  	fill_in "Height", with: 400
+  	# fill_in "Width", with: 400
+  	# fill_in "Height", with: 400
   	fill_in "Url", with: "www.mycoolpic.com/"
   	fill_in "Price", with: 10
   	

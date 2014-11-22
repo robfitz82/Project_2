@@ -10,21 +10,32 @@
   </ul>
 <% end %>
 
-<%= form_for(@photo, url: photos_create_path) do |f|%>
-<div class = "form-group">
-  <%= f.label(:title, class: "control-label") %>
-  <%= f.text_field(:title, autofocus: true, class: "form-control") %>
+<div class="jumbotron">
+  <div class="signup">
+    <%= simple_form_for([@current_user, @photo], html: {class: 'form-horizontal' }) do |f|%>
+    <div class="form-group">
+      <%= f.input(:title, autofocus: true, class: 'form-control') %>
+    </div>
+
+    <div class="form-group">
+      <%= f.uploadcare_field (:url) %>
+    </div>
+
+    <div class="form-group">
+      <%= f.input(:price) %>
+    </div>
+
+    <div class="form-group">
+      <p id="tags">Tags:</p>
+      <% @categories.each do |c| %>
+      <%= f.check_box(:categories, {checked: @photo.categories.include?(c), multiple: true}, c.id.to_i, nil) %>
+      <%= c.name %>
+      <% end %>
+    </div>
+
+    <%= f.button :submit, "Add a photo!", class: "btn btn-lg btn-info" %>
+    <% end %>
+  </div>
+
 </div>
 
-<div class="form-group">
-  <%= f.label(:url,  class: "control-label") %>
-  <%= f.text_field(:url,  class: "form-control") %>
-</div>
-
-<div class="form-group">
-  <%= f.label(:price,  class: "control-label") %>
-  <%= f.text_field(:price,  class: "form-control") %>
-</div>
-
-<%= f.submit("Add a photo!", class: "btn btn-lg btn-info") %>
-<% end %>

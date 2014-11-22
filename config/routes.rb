@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   post 'signup', to: "access#create"
 
-  get 'home', to: "access#home", as: 'home'
+  # get 'home', to: "access#home", as: 'home'
 
   get 'logout', to: "access#logout"
 
@@ -22,8 +22,13 @@ Rails.application.routes.draw do
 
   resources :categories
 
-  resources :photos
+  resources :photos do
+    resources :orders
+  end
 
-  resources :users
+  resources :users, except: [:create, :new] do
+    resources :photos
+  end
 
+  get 'photos', to: "photos#all", as: 'all_photos'
 end
