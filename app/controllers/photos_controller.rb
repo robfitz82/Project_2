@@ -1,16 +1,23 @@
 class PhotosController < ApplicationController
   before_action :check_user, only: [:edit]
-	before_action :current_user
+	before_action :current_user, except: [:all]
   before_action :categories, only: [:new, :create, :show, :edit, :update]
-	before_action :confirm_logged_in, only: [:new, :create, :edit, :show]
+	before_action :confirm_logged_in, only: [:new, :create, :edit, :show, :index]
   
+
 
   def index
     @photos = @current_user.photos
   end
 
+
   def all
-    @photos = Photo.all
+    #binding.pry
+    @portraits = Category.find(1).photos
+    @bw = Category.find(2).photos
+    @landscape = Category.find(3).photos
+    @abstract = Category.find(4).photos
+    #binding.pry
   end
 
   def new

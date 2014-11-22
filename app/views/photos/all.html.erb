@@ -1,42 +1,68 @@
-<% @photos.each_with_index do |p, index| %>	
-	<% if index % 3 == 0 %>
-	<div class="row">
-		<div class="col-sm-4">
-      <%= image_tag("#{p.url}-/resize/200x/") %>
-   </div>
-	<% else %>
-	<div class="col-sm-4">
-      <%= image_tag("#{p.url}-/resize/200x/") %>
-   </div>
-	<% end %> 
-<% end %>
 
 <div role="tabpanel">
-
-  <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist" id="myTab">
-    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+    <li role="presentation" class="active"><a href="#portrait" aria-controls="portrait" role="tab" data-toggle="tab">Portrait</a></li>
+    <li role="presentation"><a href="#bw" aria-controls="bw" role="tab" data-toggle="tab">Black and White</a></li>
+    <li role="presentation"><a href="#landscape" aria-controls="landscape" role="tab" data-toggle="tab">Landscape</a></li>
+    <li role="presentation"><a href="#abstract" aria-controls="abstract" role="tab" data-toggle="tab">Abstract</a></li>
   </ul>
 
-  <!-- Tab panes -->
   <div class="tab-content">
-    <div role="tabpanel" class="tab-pane fade in active" id="portrait">Portrait</div>
-    <div role="tabpanel" class="tab-pane fade" id="landscape">Landscape</div>
-    <div role="tabpanel" class="tab-pane fade" id="black">Black and White</div>
-    <div role="tabpanel" class="tab-pane fade" id="abstract">Abstract</div>
-  </div>
 
+
+
+
+
+
+
+
+    <div role="tabpanel" class="tab-pane active fade" id="portrait">
+      <% @portraits.each_with_index do |p, index| %>
+
+        <% if index == 0 %>
+
+          <div class="row text-center">
+            <div class="col-sm-4">
+              <%= image_tag("http://www.ucarecdn.com/85b5644f-e692-4855-9db0-8c5a83096e25/-/resize/200x/filename.jpg") %>
+            </div>
+
+        <% elsif index % 9 == 0 %>
+
+          </div>
+
+        <% elsif index % 3 == 0 %>
+
+          </div>
+          <div class="row text-center">
+            <div class="col-sm-4">
+              <%= image_tag("http://www.ucarecdn.com/85b5644f-e692-4855-9db0-8c5a83096e25/-/resize/200x/filename.jpg")%>
+            </div>
+
+        <% else %>
+
+            <div class="col-sm-4">
+              <%= image_tag("http://www.ucarecdn.com/85b5644f-e692-4855-9db0-8c5a83096e25/-/resize/200x/filename.jpg") %>
+            </div>
+
+        <% end %> 
+      <% end %>
+
+    </div>
+    </div>
+
+    <div role="tabpanel" class="tab-pane fade" id="bw">
+      Two
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="landscape">three</div>
+    <div role="tabpanel" class="tab-pane fade" id="abstract">four</div>
+  </div>
 </div>
 
+
+
+
 <script>
-    engine();
-    function engine(){
-        $('#myTab a').click(function (e) {
-          e.preventDefault()
-          $(this).tab('show')
-        })
-    }
+  $(function () {
+    $('#myTab a:last').tab('show')
+  })
 </script>
