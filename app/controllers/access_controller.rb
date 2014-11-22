@@ -1,6 +1,6 @@
 class AccessController < ApplicationController
   #before_action :confirm_logged_in, only: [:home]
-  before_action :prevent_login_signup, only: [:signup, :login, :landing]
+  before_action :prevent_login_signup, only: [:signup, :login, :landing, :all]
 
 
   def landing
