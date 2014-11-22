@@ -30,5 +30,5 @@ Rails.application.routes.draw do
     resources :photos
   end
 
-  get 'photos', to: "photos#all", as: 'all_photos'
+  get 'home', to: "photos#all", as: 'all_photos'
 end
