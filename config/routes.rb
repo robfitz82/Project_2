@@ -22,7 +22,9 @@ Rails.application.routes.draw do
 
   resources :categories
 
-  resources :photos
+  resources :photos do
+    resources :orders
+  end
 
   resources :users
 

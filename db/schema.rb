@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141119223528) do
+ActiveRecord::Schema.define(version: 20141120232503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cards", force: true do |t|
+    t.integer  "user_id"
+    t.string   "balanced_href"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -25,6 +32,15 @@ ActiveRecord::Schema.define(version: 20141119223528) do
   create_table "category_photos", force: true do |t|
     t.integer  "catergory_id"
     t.integer  "photo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "orders", force: true do |t|
+    t.integer  "buyer_id"
+    t.integer  "seller_id"
+    t.integer  "photo_id"
+    t.string   "balanced_href"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -48,6 +64,7 @@ ActiveRecord::Schema.define(version: 20141119223528) do
     t.string   "password_digest"
     t.string   "reset_token"
     t.string   "email"
+    t.string   "balanced_href"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
