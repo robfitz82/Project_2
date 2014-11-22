@@ -13,7 +13,13 @@
     width: 100%;
     margin-top: 50px;
     border: 1px solid #e7e7e7;   
-}  
+}
+.middle {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
 #photo_title {  
   width: 100%;  
 }  
@@ -33,6 +39,6 @@
 .btn-info {
 	margin-left: -15px;
 }
-.img_preview {
-	margin-left: auto 0;
+#image-responsive {
+	text-align: center;
 }
