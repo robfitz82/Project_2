@@ -1,6 +1,6 @@
 .DS_Store
 log/
-tmp/
+tmp/**/*
 
 # TODO Comment out these rules if you are OK with secrets being uploaded to the repo
 config/initializers/secret_token.rb
@@ -11,3 +11,6 @@ config/initializers/secret_token.rb
 
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
+
+# Ignore application configuration
+/config/application.yml

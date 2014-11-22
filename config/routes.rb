@@ -22,7 +22,9 @@ Rails.application.routes.draw do
 
   resources :categories
 
- 
+  resources :photos do
+    resources :orders
+  end
 
   resources :users, except: [:create, :new] do
     resources :photos

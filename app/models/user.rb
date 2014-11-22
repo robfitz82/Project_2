@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 	has_many :photos
+	has_many :cards
 	has_secure_password
 
 	validates :firstname,
