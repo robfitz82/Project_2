@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(version: 20141120232503) do
     t.string   "password_digest"
     t.string   "reset_token"
     t.string   "email"
-    t.string   "balanced_href"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

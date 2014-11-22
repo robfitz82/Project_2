@@ -6,11 +6,33 @@
     max-width: 800px;
     margin-top: 50px;
     border: 1px solid #e7e7e7;
-    border-radius: 25px;
-    
+    border-radius: 25px;   
 }
-  
-.simple_form div.input {  
-  margin-bottom: 10px;
-  width: 100% !important;  
+.wide {
+    margin: auto;
+    width: 100%;
+    margin-top: 50px;
+    border: 1px solid #e7e7e7;   
 }  
+#photo_title {  
+  width: 100%;  
+}  
+#photo_price {
+	display: block;
+}
+#tags {
+	font-size: 1em;
+	font: bold;
+}
+#photo_categories_1, #photo_categories_2, #photo_categories_3, #photo_categories_4  {
+	margin-right: 5px;
+}
+#photo_categories_2, #photo_categories_3, #photo_categories_4 {
+	margin-left: 10px;
+}
+.btn-info {
+	margin-left: -15px;
+}
+.img_preview {
+	margin-left: auto 0;
+}

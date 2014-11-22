@@ -14,7 +14,7 @@
   <div class="signup">
     <%= simple_form_for([@current_user, @photo], html: {class: 'form-horizontal' }) do |f|%>
     <div class="form-group">
-      <%= f.input(:title, autofocus: true) %>
+      <%= f.input(:title, autofocus: true, class: 'form-control') %>
     </div>
 
     <div class="form-group">
@@ -26,6 +26,7 @@
     </div>
 
     <div class="form-group">
+      <p id="tags">Tags:</p>
       <% @categories.each do |c| %>
       <%= f.check_box(:categories, {checked: @photo.categories.include?(c), multiple: true}, c.id.to_i, nil) %>
       <%= c.name %>
