@@ -3,7 +3,7 @@
 <div class="container">
 	<div class="row">
 		
-		<div class="col-md-12">
+		<div class="col-md-12 pic">
 			<%= image_tag("#{@photo.url}-/resize/x700/") %>
 		</div>
 		</div>
@@ -26,10 +26,13 @@
 	</div>
 	<div class="col-md-4">
 		<% if @current_user.id == params[:user_id].to_i %>
-		<%= link_to("Edit", edit_user_photo_path(@current_user, @photo), class: "btn btn-info pull-right") %>
+		<%= link_to(" Edit ", edit_user_photo_path(@current_user, @photo), class: "btn btn-info pull-right") %>
 		<br>
 		<br>
 		<%= link_to 'Delete',  user_photo_path(@current_user, @photo.id),  method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info pull-right" %>
+		<% end %>
+		<% if @current_user.id != params[:user_id].to_i %>
+		<%= link_to("Purchase", edit_user_photo_path(@current_user, @photo), class: "btn btn-info pull-right") %>
 		<% end %>
 	</div>
 </div>
