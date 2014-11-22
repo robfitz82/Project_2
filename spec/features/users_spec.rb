@@ -3,46 +3,55 @@ require 'rails_helper'
 feature "Users", :type => :feature do
   scenario "are able to sign up" do
   	#setup
-  	visit new_user_path
+  	visit signup_path
   	#exercise
-  	fill_in "Firstname", with: "Mary"
-  	fill_in "Lastname", with: "Joe"
-  	fill_in "Username", with: "Mjoe"
-  	fill_in "Password", with: "MyString"
-  	fill_in "Email", with: "mjoe@gmail.com"
+  	fill_in "user_firstname", with: "Mary"
+  	fill_in "user_lastname", with: "Joe"
+  	fill_in "user_username", with: "Mjoe"
+  	fill_in "user_password", with: "MyString"
+  	fill_in "user_email", with: "mjoe@gmail.com"
   	
-  	click_button "Sign Up"
+  	click_button "Signup"
 
   	#verify
-  	expect(page).to have_text("Mary" && "Joe" && "Mjoe" && "mjoe@gmail.com")
+    #expect(session[:user_id]).to_not be_nil
+  	expect(page).to have_text("You are now logged in!")
   end
 
   scenario "are able to update user info" do
   	#setup
-  	visit edit_user_path
+    @user = create(:user)
+    visit login_path
+    fill_in "Username", :with => @user.username
+    fill_in "Password", :with => @user.password
+    click_button "Login"
+  	visit edit_user_path(@user.id)
   	#exercise
-  	fill_in "Firstname", with: "Mari"
-  	fill_in "Lastname", with: "Joe"
-  	fill_in "Username", with: "Mjoe"
-  	fill_in "Password", with: "MyString"
-  	fill_in "Email", with: "marijoe@gmail.com"
+  	fill_in "user_firstname", with: "Mari"
+    fill_in "user_lastname", with: "Joe"
+    fill_in "user_username", with: "Mjoe"
+    fill_in "user_password", with: "MyString"
+    fill_in "user_password_confirmation", with: "MyString"
+    fill_in "user_email", with: "marijoe@gmail.com"
   	
-  	click_button "Edit Info"
+  	click_button "Commit Changes"
 
   	#verify
-  	expect(page).to have_text("Mari" && "Joe" && "Mjoe" && "marijoe@gmail.com")
+  	expect(page).to have_text("Your profile is updated")
   end
 
   scenario "are able to log in and be directed home" do
   	#setup
+    @user = create(:user)
   	visit login_path
   	#exercise
-  	fill_in "Username", with: "Mjoe"
-  	fill_in "Password", with: "MyString"
+  	fill_in "username", with: @user.username
+  	fill_in "password", with: @user.password
 
   	click_button "Login"
 
   	#verify
-  	expect(session[:user_id]).to_not be_nil
+  	#expect(session[:user_id]).to_not be_nil
+    expect(page).to have_text("You are now logged in.")
   end
 end
