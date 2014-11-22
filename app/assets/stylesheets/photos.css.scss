@@ -1,3 +1,16 @@
 // Place all the styles related to the photos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.jumbotron {
+    margin: auto;
+    max-width: 800px;
+    margin-top: 50px;
+    border: 1px solid #e7e7e7;
+    border-radius: 25px;
+    
+}
+  
+.simple_form div.input {  
+  margin-bottom: 10px;
+  width: 100% !important;  
+}  

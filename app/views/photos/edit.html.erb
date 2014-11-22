@@ -15,7 +15,7 @@
 
 <%= simple_form_for([@current_user, @photo], method: "put", html: {class: 'form-horizontal' }) do |f| %>
 <div class = "form-group">
-  <%= f.input(:title, autofocus: true, class: "form-control") %>
+  <%= f.input(:title, input_html: {maxlength: 50}, autofocus: true, class: "form-control") %>
 </div>
 
 <div class="form-group">

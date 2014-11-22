@@ -1,5 +1,12 @@
-<% @photos.each do |p| %>
-	<li>
+<% @photos.each_with_index do |p, index| %>	
+	<% if index % 3 == 0 %>
+	<div class="row">
+		<div class="col-sm-4">
       <%= image_tag("#{p.url}-/resize/200x/") %>
-    </li>
+   </div>
+	<% else %>
+	<div class="col-sm-4">
+      <%= image_tag("#{p.url}-/resize/200x/") %>
+   </div>
+	<% end %> 
 <% end %>
