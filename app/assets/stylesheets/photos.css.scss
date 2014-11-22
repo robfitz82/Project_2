@@ -5,13 +5,13 @@
     margin: auto;
     max-width: 800px;
     margin-top: 50px;
+    margin-bottom: 50px;
     border: 1px solid #e7e7e7;
     border-radius: 25px;   
 }
 .wide {
     margin: auto;
     width: 100%;
-    margin-top: 50px;
     border: 1px solid #e7e7e7;   
 }
 .middle {
@@ -38,7 +38,4 @@
 }
 .btn-info {
 	margin-left: -15px;
-}
-#image-responsive {
-	text-align: center;
 }
